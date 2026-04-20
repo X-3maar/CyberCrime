@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://it5y6rbwopsx"]
+
+[ext_resource type="PackedScene" uid="uid://cu3cmu6s62a80" path="res://Scenes/player.tscn" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://dagdkqjqd70gg" path="res://Scenes/dialogue.tscn" id="2_bo1nx"]
+
+[sub_resource type="TileSet" id="TileSet_jjgbg"]
+
+[sub_resource type="TileSet" id="TileSet_bo1nx"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7u77a"]
+
+[node name="main" type="Node2D" unique_id=723517381]
+metadata/_edit_horizontal_guides_ = [648.0]
+
+[node name="Elements" type="TileMapLayer" parent="." unique_id=274558355]
+tile_set = SubResource("TileSet_jjgbg")
+
+[node name="Background" type="TileMapLayer" parent="." unique_id=1696258560]
+tile_set = SubResource("TileSet_bo1nx")
+
+[node name="WorldBorder" type="StaticBody2D" parent="." unique_id=1186068005]
+
+[node name="Bottom" type="CollisionShape2D" parent="WorldBorder" unique_id=540113404]
+position = Vector2(558, 649)
+shape = SubResource("WorldBoundaryShape2D_7u77a")
+
+[node name="Player" parent="." unique_id=1004951198 instance=ExtResource("1_jjgbg")]
+position = Vector2(558, 603)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=594015510]
+zoom = Vector2(3, 3)
+limit_bottom = 648
+
+[node name="Dialogue" parent="." unique_id=1314614080 instance=ExtResource("2_bo1nx")]
+position = Vector2(558, 620)

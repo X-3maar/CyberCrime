@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dagdkqjqd70gg"]
+
+[ext_resource type="Script" uid="uid://c1t45havr16wr" path="res://Scripts/dialogue.gd" id="1_5rqxr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rqxr"]
+size = Vector2(5, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgfud"]
+size = Vector2(46, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p21q5"]
+size = Vector2(5, 42)
+
+[node name="Dialogue" type="Area2D" unique_id=1314614080]
+script = ExtResource("1_5rqxr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=950319637]
+position = Vector2(26.5, -11.5)
+shape = SubResource("RectangleShape2D_5rqxr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1437345077]
+position = Vector2(0, -29.5)
+shape = SubResource("RectangleShape2D_dgfud")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=981134876]
+position = Vector2(-26.5, -11)
+shape = SubResource("RectangleShape2D_p21q5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
