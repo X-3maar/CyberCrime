@@ -1,0 +1,26 @@
+extends Area2D
+
+var dio = Dialog.new()
+var	dialog:=dio.start(self)
+var mr=dialog.Character("Yassin's Laptop", Color.SKY_BLUE,"res://Assets/Abdeltawab.jpeg")
+var password
+func _ready() -> void:
+	dialog.typewriter_speed=25
+	dialog.typewriter=true
+		
+func send_to_parent(message: String):
+	if OS.has_feature("web"):
+		JavaScriptBridge.eval("window.parent.postMessage('" + message + "', '*');")
+
+func talk():
+	dialog.say("This is Yassin's laptop",mr)
+	dialog.say("Solve the following problem and submit the secret code to crack his laptop: https://codeforces.com/gym/688315",mr) 
+	password = await dialog.input("Enter the secret code: ",mr)
+	if password == "cybercrime{happy_perfect_shakshouka!!!}":
+		send_to_parent("cybercrime{happy_perfect_shakshouka!!!}")
+		queue_free()
+	else:
+		dialog.say("Your code is incorrect...",mr)
+
+func _on_body_entered(body: Node2D) -> void:
+	talk()

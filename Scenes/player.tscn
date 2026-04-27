@@ -200,6 +200,7 @@ size = Vector2(14, 10)
 script = ExtResource("1_v0iea")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=870423700]
+z_index = 9
 sprite_frames = SubResource("SpriteFrames_x3wgy")
 animation = &"idle_up"
 autoplay = "idle_up"

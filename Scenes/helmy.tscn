@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://ccj6j36owvx68"]
+
+[ext_resource type="Script" uid="uid://s3hxhivhvr4x" path="res://Scripts/helmy.gd" id="1_a2f8v"]
+[ext_resource type="Texture2D" uid="uid://bcajg6sopdov3" path="res://Assets/2dClassroomAssetPackByStyloo/Computer Room/Computer Room Spritesheet 1.png" id="1_mba88"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mba88"]
+size = Vector2(207, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2f8v"]
+atlas = ExtResource("1_mba88")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rv83b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2f8v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D" unique_id=1493221851]
+script = ExtResource("1_a2f8v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=575027450]
+position = Vector2(1.5, 352)
+shape = SubResource("RectangleShape2D_mba88")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1717969634]
+z_index = 11
+position = Vector2(-18, 0)
+sprite_frames = SubResource("SpriteFrames_rv83b")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
